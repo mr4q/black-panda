@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>panda</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        background: #000;
-        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+      }
+
+      .container {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        background: url("./panda.gif") center no-repeat;
+        background-size: cover;
+      }
+
+      .content {
+        position: fixed;
+        bottom: 0;
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .heading {
+        color: #b6b6b6;
       }
     </style>
   </head>
   <body>
-    Black panda
+    <div class="container"></div>
+
+    <div class="content">
+      <p class="heading">panda lives here</p>
+    </div>
   </body>
 </html>
