@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body {
+        background: linear-gradient(to right, #2c9b75 0%, #23879a 100%);
+        color: #ffffff;
+        font-family: Arial, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HelpDeskEddy Demo</h1>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const isShowChat = params.get("showChat") === "true";
+      console.log({ isShowChat });
+
+      if (isShowChat) {
+        localStorage.HDE_DISPLAY_CHAT = true;
+      } else {
+        localStorage.HDE_DISPLAY_CHAT = false;
+      }
+    </script>
+
+    <!-- HELPDESKEDDY CHAT WIDGET START -->
+    <script
+      src="//cdn.helpdeskeddy.com//js/modules/chat_widget/hde.js"
+      data-lang="ru"
+      id="hde-chat-widget"
+      data-host="my.hde.support"
+      data-position="bottom-right"
+      defer
+    ></script>
+    <!-- HELPDESKEDDY CHAT WIDGET END -->
+  </body>
+</html>
