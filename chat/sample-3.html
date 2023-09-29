@@ -19,7 +19,6 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const isShowChat = params.get("showChat") === "true";
-      console.log({ isShowChat });
 
       if (isShowChat) {
         localStorage.HDE_DISPLAY_CHAT = true;
