@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body {
+        background: linear-gradient(to right, #2c9b75 0%, #23879a 100%);
+        color: #ffffff;
+        font-family: Arial, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HelpDeskEddy Demo</h1>
+    <div>
+      <button id="show-chat-btn">Show chat</button>
+      <button id="hide-chat-btn">Hide chat</button>
+    </div>
+
+    <script>
+      const showChatButton = document.getElementById("show-chat-btn");
+      const hideChatButton = document.getElementById("hide-chat-btn");
+
+      showChatButton.addEventListener("click", () => {
+        const message = { type: "openChatWindow" };
+        window.postMessage(message);
+      });
+
+      hideChatButton.addEventListener("click", () => {
+        const message = { type: "closeChatWindow" };
+        window.postMessage(message);
+      });
+    </script>
+
+    <!-- HELPDESKEDDY CHAT WIDGET START -->
+    <script
+      src="//cdn.helpdeskeddy.com//js/modules/chat_widget/hde.js"
+      data-lang="ru"
+      id="hde-chat-widget"
+      data-host="my.hde.support"
+      data-position="bottom-right"
+      defer
+    ></script>
+    <!-- HELPDESKEDDY CHAT WIDGET END -->
+  </body>
+</html>
