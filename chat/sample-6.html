@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body {
+        background: #261c2c;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TEST</h1>
+
+    <div>
+      <button id="create-new-chat-btn">
+        Clear localStorage and renew chat
+      </button>
+    </div>
+
+    <script>
+      const createNewChatButton = document.getElementById(
+        "create-new-chat-btn"
+      );
+
+      createNewChatButton.addEventListener("click", () => {
+        clearLocalStorage();
+        createNewChat();
+      });
+
+      const clearLocalStorage = () => {
+        const host = window.parent.location.host;
+        const visitorDataKey = `HDE_VISITOR_DATA[${host}]`;
+
+        localStorage.removeItem(visitorDataKey);
+      };
+
+      const createNewChat = () => {
+        const hdeChatWidget = document.getElementById("hde-chat-widget");
+        if (hdeChatWidget) {
+          hdeChatWidget.remove();
+        }
+
+        const hdeContainer = document.getElementById("hde-container");
+        if (hdeContainer) {
+          hdeContainer.remove();
+        }
+
+        const parent = document.body;
+        addHdeWidgetScript(parent);
+      };
+
+      const addHdeWidgetScript = (parent) => {
+        const s = document.createElement("script");
+
+        const attributes = [
+          {
+            name: "src",
+            value: "//cdn.helpdeskeddy.com//js/modules/chat_widget/hde.js",
+          },
+          {
+            name: "data-lang",
+            value: "ru",
+          },
+          {
+            name: "id",
+            value: "hde-chat-widget",
+          },
+          {
+            name: "data-host",
+            value: "my.hde.support",
+          },
+          {
+            name: "data-position",
+            value: "bottom-right",
+          },
+          {
+            name: "defer",
+            value: "defer",
+          },
+        ];
+
+        for (const attribute of attributes) {
+          s.setAttribute(attribute.name, attribute.value);
+        }
+
+        parent.appendChild(s);
+      };
+    </script>
+
+    <!-- HELPDESKEDDY CHAT WIDGET START -->
+    <script
+      src="//cdn.helpdeskeddy.com//js/modules/chat_widget/hde.js"
+      data-lang="ru"
+      id="hde-chat-widget"
+      data-host="my.hde.support"
+      data-position="bottom-right"
+      defer
+    ></script>
+    <!-- HELPDESKEDDY CHAT WIDGET END -->
+  </body>
+</html>
