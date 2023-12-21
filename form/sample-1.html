@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body {
+        background: linear-gradient(to right, #2c9b75 0%, #23879a 100%);
+        color: #ffffff;
+        font-family: Arial, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HelpDeskEddy Demo</h1>
+    <form
+      action="//support.green-api.com/ru/api/submit_ticket"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="back" value="" />
+      <input type="hidden" name="depart" value="1" />
+      <ul>
+        <li>
+          <label for="name">Имя</label>
+          <input type="text" name="name" id="name" required="required" />
+        </li>
+        <li>
+          <label for="email">Э-почта</label>
+          <input type="email" name="email" id="email" required="required" />
+        </li>
+        <li>
+          <label for="organization">Компания</label>
+          <input
+            type="text"
+            name="organization"
+            id="organization"
+            required="required"
+          />
+        </li>
+        <li>
+          <label for="type">Тип вопроса</label>
+          <select name="type" id="type">
+            <option value="0">Без типа</option>
+            <option value="1">Проблема</option>
+            <option value="2">Задание</option>
+            <option value="3">Ошибка</option>
+            <option value="4">Использование</option>
+            <option value="14">Оформление</option>
+            <option value="50">Маркетинг</option>
+            <option value="9">Тестовый</option>
+            <option value="10">Отказано</option>
+            <option value="15">Расширение зон</option>
+            <option value="18">Простой</option>
+            <option value="19">Тестовый 1</option>
+            <option value="20">Тестовый 2</option>
+            <option value="21">Тестовый 3</option>
+            <option value="22">Тестовый 4</option>
+            <option value="23">Тестовый 5</option>
+            <option value="24">Тестовый 6</option>
+            <option value="25">Тестовый 7</option>
+            <option value="26">Тестовый 8</option>
+            <option value="27">Тестовый 9</option>
+            <option value="28">Тестовый 10</option>
+            <option value="29">Тестовый 11</option>
+            <option value="30">Тестовый 12</option>
+            <option value="31">Тестовый 13</option>
+            <option value="32">Тестовый 14</option>
+            <option value="33">Тестовый 15</option>
+            <option value="34">Тестовый 16</option>
+            <option value="35">Тестовый 17</option>
+            <option value="36">Тестовый 18</option>
+            <option value="37">Тестовый 19</option>
+            <option value="38">Тестовый 20</option>
+            <option value="39">Тестовый 21</option>
+            <option value="40">Тестовый 22</option>
+            <option value="41">Тестовый 23</option>
+            <option value="42">Тестовый 24</option>
+            <option value="43">Тестовый 25</option>
+            <option value="44">Тестовый 26</option>
+            <option value="45">Тестовый 27</option>
+            <option value="46">Тестовый 28</option>
+            <option value="47">Тестовый 29</option>
+            <option value="48">Тестовый 30</option>
+            <option value="49">Тестовый 31</option>
+            <option value="51">YoungSan</option>
+            <option value="52">ЗО(KZ)</option>
+            <option value="53">ЗО(KG)</option>
+          </select>
+        </li>
+        <li>
+          <label for="priority">Приоритет</label>
+          <select name="priority" id="priority">
+            <option value="2">Стандартно</option>
+            <option value="3">Средний</option>
+            <option value="1">Срочно</option>
+            <option value="4">Тест приоритет</option>
+          </select>
+        </li>
+        <li>
+          <label for="file">Приложение</label>
+          <input type="file" name="file[]" multiple="multiple" />
+        </li>
+        <li>
+          <label for="tags">Метки</label>
+          <input type="text" name="tags" id="tags" />
+        </li>
+        <li>
+          <label for="subject">Название</label>
+          <input type="text" name="subject" id="subject" required="required" />
+        </li>
+        <li>
+          <label for="description">Описание</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </li>
+        <li>
+          <button type="submit">Отправить</button>
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>
