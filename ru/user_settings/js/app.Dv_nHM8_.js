@@ -1,0 +1,1 @@
+import{c as e,a as s}from"./chunk-vendors.DqlmKxR8.js";import{$ as t,r as n,_ as o}from"./chunk-vendors.Dm3iasCT.js";const p=e(),a=s(o);a.config.globalProperties.$trans=t;a.use(p);a.use(n);a.mount("#user-settings-app");document.getElementById("js-app-loading")!==null&&(document.getElementById("js-app-loading").style.display="none");

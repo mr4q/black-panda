@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="6ceb8104-6d1a-498c-84e3-58bb6a689b11" />
+    <link rel="stylesheet" href="//cdn.helpdeskeddy.com//css/icon-fonts.css" />
+    <title>Vite + Vue</title>
+    <style>
+      /* System */
+      body {
+        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', Arial,
+          sans-serif !important;
+      }
+
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: #aaa;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(170, 170, 170, 0.5);
+        border-radius: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(170, 170, 170, 1);
+      }
+
+      div,
+      span,
+      p {
+        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        font-weight: 400;
+      }
+
+      a {
+        color: #23869b;
+      }
+
+      a:hover {
+        color: #4f9eaf;
+      }
+
+      a:link,
+      a:visited {
+        text-decoration: none;
+      }
+
+      button {
+        min-height: 27px;
+      }
+      /* System */
+
+      a {
+        color: #23869b;
+        text-decoration: none;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', Arial,
+          sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .container__sidebar-menu {
+        max-width: 230px;
+        min-width: 230px;
+        flex: 1;
+        margin-right: 5px;
+      }
+
+      .container__content {
+        flex: 1;
+      }
+
+      .container__main-menu {
+        max-width: 65px;
+        min-width: 65px;
+        flex: 1;
+        margin-right: 5px;
+      }
+
+      .menu {
+        background: #23869b;
+        width: 65px;
+        position: fixed;
+        height: 100%;
+        z-index: 3030;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(#2c9b75, 60%, #23879a) !important;
+      }
+
+      .menu__items {
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .menu a {
+        text-decoration: none;
+        display: block;
+      }
+
+      .menu__item_logo {
+        line-height: 65px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 65px;
+        width: 65px;
+        display: block;
+      }
+
+      .menu__item {
+        height: 65px;
+        width: 65px;
+      }
+
+      .menu .menu__items .menu__item {
+        background-color: transparent !important;
+      }
+
+      .menu .menu__item {
+        color: var(--menu-item-color, #fff) !important;
+        background-color: var(--menu-item-background, #23869b) !important;
+      }
+
+      .menu__item-icon {
+        box-sizing: content-box;
+        font-size: 25px;
+        line-height: 35px;
+        padding-top: 10px;
+        text-align: center;
+        height: 35px;
+      }
+
+      .menu__item-name {
+        font-size: 10px;
+        line-height: 15px;
+        padding-bottom: 5px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .menu .menu__items .menu__item:hover:not(.menu__item_logo),
+      .menu .menu__items .menu__item.is-active,
+      .menu .menu__items_bottom .menu__item.is-active {
+        background: linear-gradient(#2c9b75, #23879a) !important;
+      }
+
+      .menu__items_bottom {
+        margin-top: auto;
+      }
+
+      .menu__item_profile {
+        position: relative;
+      }
+
+      .menu__item_toggle {
+        height: 65px;
+        width: 65px;
+        position: absolute;
+        z-index: 3030;
+      }
+
+      .menu__item-avatar {
+        height: 45px;
+        width: 45px;
+        border-radius: 90%;
+        margin: auto;
+        position: relative;
+        top: 15px;
+        border: 2px solid #fff;
+        box-sizing: border-box;
+      }
+
+      .menu__item-avatar-status {
+        left: auto;
+        right: 2px;
+        top: 31px;
+        height: 7px;
+        width: 7px;
+        display: block;
+        border-radius: 90%;
+        position: absolute;
+      }
+
+      .sidebar {
+        flex-direction: column;
+        margin-top: 5px;
+        -webkit-user-select: none;
+        user-select: none;
+        border-radius: 3px;
+        background: #f4f4f5;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        font-size: 13px;
+      }
+
+      .sidebar__item {
+        flex-direction: row;
+        color: #333;
+        line-height: 30px;
+        border-radius: 4px;
+        display: flex;
+        font-size: 13px;
+      }
+
+      .sidebar__item-icon {
+        margin-right: 5px;
+        max-width: 15px;
+        min-width: 15px;
+      }
+
+      .sidebar__item.sidebar__item_active .sidebar__item-icon,
+      .sidebar__item.sidebar__item_active .sidebar__item-name,
+      .sidebar__item:hover .sidebar__item-icon,
+      .sidebar__item:hover .sidebar__item-name,
+      .sidebar__main a {
+        color: #333;
+        font-weight: 700;
+      }
+    </style>
+    <script type="module" crossorigin src="/ru/user_settings/js/app.2Tswsj8e.js"></script>
+    <link rel="modulepreload" crossorigin href="/ru/user_settings/js/chunk-vendors.DqlmKxR8.js">
+    <link rel="modulepreload" crossorigin href="/ru/user_settings/js/chunk-vendors.Dm3iasCT.js">
+    
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="container__main-menu">
+        <div class="menu">
+          <div class="menu__items">
+            <a
+              data-v-6437c2da=""
+              href="/"
+              class="menu__item menu__item_logo"
+              style="
+                /* background-image: url('/custom/custom-logo.png'); */
+                background-image: url('/src/dev_hde_files/custom/custom-logo.png');
+                background-color: unset;
+              "
+            ></a
+            ><a data-v-318d8442="" href="/ru/ticket/list" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-tickets"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Заявки</div></a
+            >
+            <div class="menu__item">
+              <div>
+                <div class="menu__item-icon"><i class="icon-phone"></i></div>
+                <div class="menu__item-name">Телефония</div>
+              </div>
+              <!---->
+            </div>
+            <a data-v-318d8442="" href="/ru/omnichannel/" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-chat"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Омни</div></a
+            ><a data-v-318d8442="" href="/ru/contacts/" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-contacts"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Контакты</div></a
+            ><a data-v-318d8442="" href="/ru/knowledge_base/" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-knowledge"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">
+                База знаний
+              </div></a
+            ><a data-v-318d8442="" href="/ru/review/" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-statistic"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Отчёты</div></a
+            ><a data-v-318d8442="" href="/ru/dashboard" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="fa fa-pie-chart"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Аналитика</div></a
+            ><a data-v-318d8442="" href="/ru/news/" class="menu__item"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-newspaper-folded"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">Новости</div></a
+            ><!---->
+          </div>
+          <div class="menu__items_bottom">
+            <a data-v-318d8442="" href="/ru/staff/" class="menu__item is-active"
+              ><div data-v-318d8442="" class="menu__item-icon">
+                <i data-v-318d8442="" class="hde-global-settings"></i>
+              </div>
+              <div data-v-318d8442="" class="menu__item-name">
+                Управление
+              </div></a
+            >
+            <div data-v-80aac76c="" class="menu__item menu__item_profile">
+              <div data-v-80aac76c="" class="menu__item_toggle"></div>
+              <div
+                data-v-80aac76c=""
+                class="menu__item-avatar on-hold"
+                style="
+                  background: url('/src/dev_hde_files/ru/file/image/15_2022$8c93d8784534217515c52ed7110f76171f441fc0/height/45.jpg')
+                    center center / cover no-repeat;
+                  border-color: rgb(230, 162, 60);
+                "
+              >
+                <div
+                  data-v-80aac76c=""
+                  class="menu__item-avatar-status"
+                  style="background: rgb(230, 162, 60)"
+                ></div>
+              </div>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div class="container__sidebar-menu">
+        <div class="sidebar">
+          <div class="sidebar__items">
+            <a class="sidebar__item" href="/ru/user_settings/profile/">
+              <div class="sidebar__item-icon">
+                <i class="icon-equalizer"></i>
+              </div>
+              <div class="sidebar__item-name">Профиль</div>
+            </a>
+            <a class="sidebar__item" href="/ru/user_settings/search_filter/">
+              <div class="sidebar__item-icon">
+                <i class="hde-filter-3"></i>
+              </div>
+              <div class="sidebar__item-name">Фильтры заявок</div>
+            </a>
+            <a class="sidebar__item" href="/ru/user_settings/macro/">
+              <div class="sidebar__item-icon">
+                <i class="hde-macro"></i>
+              </div>
+              <div class="sidebar__item-name">Макросы</div>
+            </a>
+            <a
+              class="sidebar__item"
+              href="/ru/user_settings/user_satisfaction/"
+            >
+              <div class="sidebar__item-icon">
+                <i class="hde-staff-satisfaction"></i>
+              </div>
+              <div class="sidebar__item-name">Мои оценки</div>
+            </a>
+            <a
+              class="sidebar__item"
+              href="/ru/user_settings/personal_settings/"
+            >
+              <div class="sidebar__item-icon">
+                <i class="icon-drawer"></i>
+              </div>
+              <div class="sidebar__item-name">Персональные настройки</div>
+            </a>
+            <a class="sidebar__item" href="/ru/user_settings/notifications/">
+              <div class="sidebar__item-icon">
+                <i class="icon-bell"></i>
+              </div>
+              <div class="sidebar__item-name">Оповещения</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container__content">
+        <div id="user-settings-app"></div>
+      </div>
+    </div>
+  </body>
+</html>
